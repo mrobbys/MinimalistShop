@@ -502,8 +502,6 @@ img {
 .womens__card,
 .mens__card {
   text-align: center;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
-  -webkit-filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
 }
 
 .womens__img,
@@ -511,6 +509,7 @@ img {
   width: 200px;
   margin-inline: auto;
   margin-bottom: 0.75rem;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
   transition: transform 0.4s;
 }
 
