@@ -33,6 +33,23 @@ if (navClose) {
   });
 }
 
+// tutup menu jika di scroll
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    navMenu.classList.remove("show-menu");
+  }
+});
+
+// tutup menu jika klik di luar nav__menu
+document.addEventListener("click", (e) => {
+  const isClickInside =
+    navMenu.contains(e.target) || navToggle.contains(e.target);
+
+  if (!isClickInside) {
+    navMenu.classList.remove("show-menu");
+  }
+});
+
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLink = document.querySelectorAll(".nav__link");
 
@@ -72,11 +89,14 @@ const sr = ScrollReveal({
   //   reset: true // animations repeat
 });
 
-sr.reveal(`.nav__logo, .cc__home__toggle, .contact__content > div:nth-child(1)`, {
-  delay: 200,
-  reset: false,
-  origin: "left",
-});
+sr.reveal(
+  `.nav__logo, .cc__home__toggle, .contact__content > div:nth-child(1)`,
+  {
+    delay: 200,
+    reset: false,
+    origin: "left",
+  }
+);
 
 // sr.reveal(`.nav__link`, { delay: 800, interval: 300 });
 sr.reveal(`.nav__toggle, .contact__content > div:nth-child(2)`, {
@@ -116,13 +136,13 @@ sr.reveal(`.womens__card, .mens__card`, {
 const configureScrollReveal = () => {
   const screenWidth = window.innerWidth; // Mendapatkan lebar layar
 
-  if (screenWidth > 768){
+  if (screenWidth > 768) {
     sr.reveal(`.nav__link`, { delay: 800, interval: 300, reset: false });
   }
 };
 
 // Panggil fungsi saat halaman dimuat
-document.addEventListener('DOMContentLoaded', configureScrollReveal);
+document.addEventListener("DOMContentLoaded", configureScrollReveal);
 
 // Panggil ulang fungsi setiap kali ukuran layar berubah
-window.addEventListener('resize', configureScrollReveal);
+window.addEventListener("resize", configureScrollReveal);
